@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  member/mail.vue
+  <div>member/mail.vue</div>
 </template>
 
 <style scoped>

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  admin/user.vue
+  <div>admin/user.vue</div>
 </template>
 
 <style scoped>

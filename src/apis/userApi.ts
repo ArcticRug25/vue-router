@@ -12,8 +12,12 @@ export function info() {
   })
 }
 
+interface LoginInterface {
+  token: string
+}
+
 export function login() {
-  return http.request({
-    url: 'info',
+  return http.request<LoginInterface>({
+    url: 'login',
   })
 }

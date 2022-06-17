@@ -3,13 +3,16 @@
 import type { MockMethod } from 'vite-plugin-mock'
 export default [
   {
-    url: '/api/get',
+    url: '/api/info',
     method: 'get',
     response: () => {
       return {
-        code: 0,
+        code: 200,
+        message: 'successful',
         data: {
           name: 'vben',
+          age: 18,
+          avatar: '/avatar/1.jpg',
         },
       }
     },

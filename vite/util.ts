@@ -9,7 +9,13 @@ export function parseEnv(env: Record<string, any>): ViteEnv {
 
     // 数值类型
     if (/^\d+$/.test(value))
-      env[key] = parseInt(value)
+      env[key] = Number(value)
+
+    if (value === 'null')
+      envs[key] = null
+
+    if (value === 'undefined')
+      envs[key] = undefined
   })
   return envs
 }

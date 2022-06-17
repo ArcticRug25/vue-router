@@ -9,7 +9,7 @@ export default [
       return {
         code: 200,
         message: 'successful',
-        data: {
+        result: {
           name: 'vben',
           age: 18,
           avatar: '/avatar/1.jpg',

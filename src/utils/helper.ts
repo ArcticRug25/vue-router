@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-export default new class {
+class Helper {
   public env = {} as ImportMetaEnv
   constructor() {
     this.env = this.getEnv()
@@ -25,5 +25,7 @@ export default new class {
     })
     return envs
   }
-}()
+}
+const env = new Helper().env
+export { env }
 

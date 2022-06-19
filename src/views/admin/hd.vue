@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import { ErrorMessage, Field, Form } from 'vee-validate'
+import { ErrorMessage, Field, Form, defineRule } from 'vee-validate'
+import { email, required } from '@vee-validate/rules'
 import { ref } from 'vue'
 const account = ref<string>('')
-const emailRule = (value: unknown) => /@/.test(value as string) ? true : '邮箱格式错误'
+defineRule('required', required)
+defineRule('email', email)
+// const emailRule = (value: unknown) => /@/.test(value as string) ? true : '邮箱格式错误'
 const onSubmit = (values: object) => {
 }
 </script>
 
 <template>
   <Form @submit="onSubmit">
-    <Field v-slot="{ field, errorMessage }" v-model="account" name="account" :rules="emailRule" :validate-on-input="true">
+    <Field v-slot="{ field, errorMessage }" v-model="account" name="account" :rules="{ required: true, email: true }" :validate-on-input="true">
       <input v-bind="field" v-model="account">
       <hr>
       <p>{{ errorMessage }}</p>
     </Field>
-    <ErrorMessage name="account" />
+    <!-- <ErrorMessage name="account" /> -->
     <hr>
     <button>
       提交表单

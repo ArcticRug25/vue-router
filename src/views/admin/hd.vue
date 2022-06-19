@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import { ErrorMessage, Field, Form, defineRule } from 'vee-validate'
+import { ErrorMessage, Field, Form, configure, defineRule } from 'vee-validate'
 import { email, required } from '@vee-validate/rules'
 import { ref } from 'vue'
+import { localize } from '@vee-validate/i18n'
+import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json'
 const account = ref<string>('')
 defineRule('required', required)
 defineRule('email', email)
+configure({
+  generateMessage: localize('zh_CN', zh_CN),
+})
 // const emailRule = (value: unknown) => /@/.test(value as string) ? true : '邮箱格式错误'
 const onSubmit = (values: object) => {
 }
@@ -12,7 +17,7 @@ const onSubmit = (values: object) => {
 
 <template>
   <Form @submit="onSubmit">
-    <Field v-slot="{ field, errorMessage }" v-model="account" name="account" :rules="{ required: true, email: true }" :validate-on-input="true">
+    <Field v-slot="{ field, errorMessage }" v-model="account" label="账号" name="account" :rules="{ required: true, email: true }" :validate-on-input="true">
       <input v-bind="field" v-model="account">
       <hr>
       <p>{{ errorMessage }}</p>

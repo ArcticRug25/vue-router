@@ -5,8 +5,7 @@ import { ref } from 'vue'
 import { localize } from '@vee-validate/i18n'
 import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json'
 const account = ref<string>('')
-defineRule('required', required)
-defineRule('email', email)
+
 configure({
   generateMessage: localize('zh_CN', zh_CN),
 })

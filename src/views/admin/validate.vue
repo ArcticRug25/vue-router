@@ -1,16 +1,8 @@
 <script setup lang="ts">
-import { configure, defineRule, useField, useForm } from 'vee-validate'
-import { email, required } from '@vee-validate/rules'
-import { localize } from '@vee-validate/i18n'
-import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json'
-import { ref } from 'vue'
-import * as yup from 'yup'
+import v from '@/plugins/validate'
 
-defineRule('required', required)
-defineRule('email', email)
-configure({
-  generateMessage: localize('zh_CN', zh_CN),
-})
+const { useField, yup, useForm } = v
+
 const { handleSubmit, errors } = useForm({
   initialValues: {
     username: 'vben',

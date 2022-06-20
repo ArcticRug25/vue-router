@@ -10,7 +10,7 @@ const { handleSubmit, errors } = useForm({
   },
   validationSchema: {
     // username: { required: true, email: true },
-    username: yup.string().required('不能为空').email('请输入正确的邮箱'),
+    username: yup.string().required().email().label('账号'),
     password: { required: true },
   },
 })

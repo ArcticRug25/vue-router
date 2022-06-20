@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { configure, defineRule, useField, useForm } from 'vee-validate'
 import { email, required } from '@vee-validate/rules'
-import { ref } from 'vue'
 import { localize } from '@vee-validate/i18n'
 import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json'
+import { ref } from 'vue'
 import * as yup from 'yup'
 
 defineRule('required', required)

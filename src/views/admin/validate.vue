@@ -9,16 +9,36 @@ defineRule('email', email)
 configure({
   generateMessage: localize('zh_CN', zh_CN),
 })
-const { handleSubmit, errors } = useForm()
-const { value: usernameValue } = useField('username', { required: true, email: true }, { label: '用户名' })
+const { handleSubmit, errors } = useForm({
+  initialValues: {
+    username: 'vben',
+    password: '',
+  },
+  validationSchema: {
+    username: { required: true, email: true },
+    password: { required: true },
+  },
+})
+const { value: usernameValue } = useField('username', {}, { label: '用户名' })
+const { value: passwordValue } = useField('password', {}, { label: '密码' })
 const onSubmit = handleSubmit((values: object) => {
 })
 </script>
 
 <template>
   <form @submit="onSubmit">
-    <input v-model="usernameValue" type="text">
-    <p>{{ errors.username }}</p>
+    <section>
+      <input v-model="usernameValue" type="text">
+      <p v-if="errors.username" class="error">
+        {{ errors.username }}
+      </p>
+    </section>
+    <section>
+      <input v-model="passwordValue" type="text">
+      <p v-if="errors.password" class="error">
+        {{ errors.password }}
+      </p>
+    </section>
     <button>提交</button>
   </form>
 </template>
@@ -31,6 +51,9 @@ div {
   }
   button{
     @apply border bg-gray-600 text-white px-4 rounded-md;
+  }
+  .error {
+    @apply bg-red-600 border border-gray-800 p-2 text-white;
   }
 }
 </style>

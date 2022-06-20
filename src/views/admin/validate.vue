@@ -4,6 +4,8 @@ import { email, required } from '@vee-validate/rules'
 import { ref } from 'vue'
 import { localize } from '@vee-validate/i18n'
 import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json'
+import * as yup from 'yup'
+
 defineRule('required', required)
 defineRule('email', email)
 configure({
@@ -15,7 +17,8 @@ const { handleSubmit, errors } = useForm({
     password: '',
   },
   validationSchema: {
-    username: { required: true, email: true },
+    // username: { required: true, email: true },
+    username: yup.string().required('不能为空').email('请输入正确的邮箱'),
     password: { required: true },
   },
 })

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <button class="hd-button mt-4">
+  <button class="hd-button mt-5">
     登录
   </button>
 </template>

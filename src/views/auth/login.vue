@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { login } from '@/apis/userApi'
 import v from '@/plugins/validate'
 
 const { Form, Field, ErrorMessage, yup } = v
@@ -13,8 +14,8 @@ const schema = {
   password: { required: true, min: 3 },
 }
 
-const onSubmit = (values) => {
-  console.log(values)
+const onSubmit = async (values) => {
+  const { result: { token } } = await login(values)
 }
 </script>
 
@@ -27,12 +28,12 @@ const onSubmit = (values) => {
             会员登录
           </h2>
           <div class="mt-8">
-            <Field name="account" class="hd-input" label="账号" placeholder="请输入邮箱或者手机号" />
+            <Field name="account" class="hd-input" value="admin@163.com" label="账号" placeholder="请输入邮箱或者手机号" />
             <div v-if="errors.account" class="hd-error">
               请输入邮箱或手机号
             </div>
             <!-- <ErrorMessage name="account" as="div" class="hd-error" /> -->
-            <Field name="password" class="hd-input mt-3" label="密码" placeholder="请输入密码" type="password" />
+            <Field name="password" class="hd-input mt-3" value="admin888" label="密码" placeholder="请输入密码" type="password" />
             <ErrorMessage name="password" as="div" class="hd-error" />
           </div>
           <hdButton />

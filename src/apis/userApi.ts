@@ -16,8 +16,10 @@ interface LoginInterface {
   token: string
 }
 
-export function login() {
+export function login(data: unknown) {
   return http.request<LoginInterface>({
     url: 'login',
+    method: 'post',
+    data,
   })
 }

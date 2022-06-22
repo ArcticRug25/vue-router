@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import { login } from '@/apis/userApi'
 import v from '@/plugins/validate'
 import { store } from '@/utils'
 
+const router = useRouter()
+console.log(router)
 const { Form, Field, ErrorMessage, yup } = v
 
 // const schema = yup.object({
@@ -19,8 +22,10 @@ const onSubmit = async (values: unknown) => {
   const { result: { token } } = await login(values)
   store.set('token', {
     token,
-    expire: 100,
+    // expire: 5,
   })
+  console.log(router)
+  router.push({ name: 'home' })
 }
 </script>
 
@@ -69,4 +74,4 @@ export default {
 form {
   @apply bg-slate-300 h-screen flex justify-center items-center p-5;
  }
-</style>
+</style> v

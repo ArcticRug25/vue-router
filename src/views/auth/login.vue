@@ -24,6 +24,12 @@ const onSubmit = async (values: unknown) => {
 }
 </script>
 
+<script lang="ts">
+export default {
+  route: { name: 'login' },
+}
+</script>
+
 <template>
   <Form v-slot="{ errors }" class :validation-schema="schema" @submit="onSubmit">
     <div class="w-[720px] -translate-y-12 md:translate-y-0 bg-white md:grid grid-cols-2 rounded-md shadow-md overflow-hidden">

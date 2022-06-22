@@ -5,7 +5,7 @@ import zh_CN from '@vee-validate/i18n/dist/locale/zh_CN.json'
 import yup from './yup'
 
 veeValidate.configure({
-  validateOnInput: true,
+  // validateOnInput: true,
   generateMessage: localize('zh_CN', zh_CN),
 })
 

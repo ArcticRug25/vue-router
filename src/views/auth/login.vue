@@ -21,28 +21,33 @@ const onSubmit = (values) => {
 <template>
   <Form v-slot="{ errors }" class :validation-schema="schema" @submit="onSubmit">
     <div class="w-[720px] -translate-y-12 md:translate-y-0 bg-white md:grid grid-cols-2 rounded-md shadow-md overflow-hidden">
-      <div class="p-6">
-        <h2 class="text-cen ter text-gray-700 text-lg mt-3">
-          会员登录
-        </h2>
-        <div class="mt-8">
-          <Field name="account" class="hd-input" label="账号" placeholder="请输入邮箱或者手机号" />
-          <div v-if="errors.account" class="hd-error">
-            请输入邮箱或手机号
+      <div class="p-6 flex flex-col justify-between">
+        <div>
+          <h2 class="text-cen ter text-gray-700 text-lg mt-3">
+            会员登录
+          </h2>
+          <div class="mt-8">
+            <Field name="account" class="hd-input" label="账号" placeholder="请输入邮箱或者手机号" />
+            <div v-if="errors.account" class="hd-error">
+              请输入邮箱或手机号
+            </div>
+            <!-- <ErrorMessage name="account" as="div" class="hd-error" /> -->
+            <Field name="password" class="hd-input mt-3" label="密码" placeholder="请输入密码" type="password" />
+            <ErrorMessage name="password" as="div" class="hd-error" />
           </div>
-          <!-- <ErrorMessage name="account" as="div" class="hd-error" /> -->
-          <Field name="password" class="hd-input mt-3" label="密码" placeholder="请输入密码" type="password" />
-          <ErrorMessage name="password" as="div" class="hd-error" />
+          <hdButton />
+          <div class="flex justify-center mt-3">
+            <i class="fa-brands fa-weixin bg-green-600 text-white rounded-full p-1 cursor-pointer" />
+          </div>
         </div>
-        <hdButton class="mt-" />
         <div class="flex gap-2 justify-center mt-5">
           <hdLink />
           <a class="text-xs text-gray-700">会员注册</a>
           <a class="text-xs text-gray-700">找回密码</a>
         </div>
       </div>
-      <div class="hidden md:block">
-        <img src="/images/login.jpg" class="h-80 w-full object-cover">
+      <div class="hidden md:block relative">
+        <img src="/images/login.jpg" class="absolute h-full w-full object-cover">
       </div>
     </div>
   </Form>

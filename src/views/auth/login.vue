@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { login } from '@/apis/userApi'
 import v from '@/plugins/validate'
+import { store } from '@/utils'
 
 const { Form, Field, ErrorMessage, yup } = v
 
@@ -14,8 +15,12 @@ const schema = {
   password: { required: true, min: 3 },
 }
 
-const onSubmit = async (values) => {
+const onSubmit = async (values: unknown) => {
   const { result: { token } } = await login(values)
+  store.set('token', {
+    token,
+    expire: 100,
+  })
 }
 </script>
 

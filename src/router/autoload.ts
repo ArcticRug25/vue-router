@@ -1,9 +1,8 @@
 import type { RouteRecordRaw } from 'vue-router'
-import { env } from '@/utils/helper'
+import { env } from '@/utils'
 
 const layouts = import.meta.globEager('../layout/*.vue')
 const views = import.meta.globEager('../views/**/*.vue')
-
 function getRoutes(): RouteRecordRaw[] {
   return Object.entries(layouts).reduce((routes, [file, module]) => {
     const route = getRouteByModule(file, module)

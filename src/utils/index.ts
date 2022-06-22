@@ -1,15 +1,5 @@
-export function to<T, U = Error>(
-  promise: Promise<T>,
-  errorExt?: object,
-): Promise<[U, undefined] | [null, T]> {
-  return promise
-    .then<[null, T]>((data: T) => [null, data])
-    .catch<[U, undefined]>((err: U) => {
-      if (errorExt) {
-        const parseError = Object.assign({}, err, errorExt)
-        return [parseError, undefined]
-      }
+import env from './env'
+import to from './to'
+import store from './store'
 
-      return [err, undefined]
-    })
-}
+export { env, to, store }

@@ -5,7 +5,6 @@ import v from '@/plugins/validate'
 import { store } from '@/utils'
 
 const router = useRouter()
-console.log(router)
 const { Form, Field, ErrorMessage, yup } = v
 
 // const schema = yup.object({
@@ -24,7 +23,6 @@ const onSubmit = async (values: unknown) => {
     token,
     // expire: 5,
   })
-  console.log(router)
   router.push({ name: 'home' })
 }
 </script>
@@ -52,7 +50,7 @@ export default {
             <Field name="password" class="hd-input mt-3" value="admin888" label="密码" placeholder="请输入密码" type="password" />
             <ErrorMessage name="password" as="div" class="hd-error" />
           </div>
-          <hdButton />
+          <hdButton class="w-full" />
           <div class="flex justify-center mt-3">
             <i class="fa-brands fa-weixin bg-green-600 text-white rounded-full p-1 cursor-pointer" />
           </div>

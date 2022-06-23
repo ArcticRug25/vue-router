@@ -6,13 +6,20 @@ class Guard {
   }
 
   public run() {
-    this.router.beforeEach((to) => {
+    this.router.beforeEach((to, from) => {
       this.token = store.get('token')?.token
       // 匹配到父子路由的信息会进行合并
       // 登录处理
       if (!this.isLogin(to))
         return { name: 'login' }
+
+      if (!this.isGuest(to))
+        return from
     })
+  }
+
+  private isGuest(route: RouteLocationNormalized) {
+    return Boolean(!route.meta.guest || (route.meta.guest && !this.token))
   }
 
   private isLogin(route: RouteLocationNormalized): boolean {

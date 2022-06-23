@@ -5,9 +5,13 @@
 
 .hd-error {
   // @apply rounded-sm bg-pink-400 text-white text-xs px-2 py-1 mt-2;
-  @apply text-xs text-red-600 mt-2
+  @apply text-xs text-red-600 mt-2;
 }
 
 .hd-button {
-  @apply bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-400 duration-200
+  @apply bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-400 duration-200;
+
+  &.hd-danger {
+    @apply bg-blue-800 hover:bg-blue-600;
+  }
 }

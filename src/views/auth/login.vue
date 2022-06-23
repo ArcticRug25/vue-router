@@ -29,7 +29,7 @@ const onSubmit = async (values: unknown) => {
 
 <script lang="ts">
 export default {
-  route: { name: 'login' },
+  route: { name: 'login', meta: { guest: true } },
 }
 </script>
 
@@ -72,4 +72,4 @@ export default {
 form {
   @apply bg-slate-300 h-screen flex justify-center items-center p-5;
  }
-</style> v
+</style>

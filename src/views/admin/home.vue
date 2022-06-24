@@ -1,4 +1,29 @@
 <script setup lang="ts">
+interface IMenuItem {
+  title: string
+  icon?: string
+  active?: boolean
+}
+interface IMenu extends IMenuItem {
+  children?: IMenuItem[]
+}
+const menus = [{
+  title: '错误页面',
+  icon: 'fas fa-angle-down',
+  active: true,
+  children: [
+    { title: '404页面', active: true },
+    { title: '403页面' },
+    { title: '500页面' },
+  ],
+}, {
+  title: '编辑器',
+  children: [
+    { title: 'Markdown编辑器' },
+    { title: '富文本编辑器' },
+  ],
+},
+] as IMenu[]
 </script>
 
 <template>
@@ -10,21 +35,18 @@
       </div>
       <!-- 菜单 -->
       <div class="left-container">
-        <dl>
+        <dl v-for="(menu, index) of menus" :key="index">
           <dt>
             <section>
               <i class="fab fa-behance-square" />
-              <span class="text-">错误页面</span>
+              <span class="text-">{{ menu.title }}</span>
             </section>
             <section>
-              <i class="fas fa-angle-down" />
+              <i :class="menu.icon" />
             </section>
           </dt>
-          <dd class="active">
-            404错误
-          </dd>
-          <dd>
-            403错误
+          <dd v-for="(cmenu, key) of menu.children" v-show="menu.active" :key="key" :class="{ active: cmenu.active }">
+            {{ cmenu.title }}
           </dd>
         </dl>
       </div>

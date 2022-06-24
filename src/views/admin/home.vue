@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { reactive } from 'vue'
+
 interface IMenuItem {
   title: string
   icon?: string
@@ -7,9 +9,9 @@ interface IMenuItem {
 interface IMenu extends IMenuItem {
   children?: IMenuItem[]
 }
-const menus = [{
+const menus = reactive<IMenu[]>([{
   title: '错误页面',
-  icon: 'fas fa-angle-down',
+  icon: 'fab fa-bimobject',
   active: true,
   children: [
     { title: '404页面', active: true },
@@ -18,12 +20,24 @@ const menus = [{
   ],
 }, {
   title: '编辑器',
+  icon: 'fab fa-app-store-ios',
   children: [
     { title: 'Markdown编辑器' },
     { title: '富文本编辑器' },
   ],
-},
-] as IMenu[]
+}])
+
+const resetMenus = () => {
+  menus.forEach((menu) => {
+    menu.active = false
+    menu.children?.forEach(m => m.active = false)
+  })
+}
+
+const handle = (pmenu: IMenuItem, cmenu?: IMenuItem) => {
+  resetMenus()
+  pmenu.active = true
+}
 </script>
 
 <template>
@@ -36,13 +50,13 @@ const menus = [{
       <!-- 菜单 -->
       <div class="left-container">
         <dl v-for="(menu, index) of menus" :key="index">
-          <dt>
+          <dt @click="handle(menu)">
             <section>
-              <i class="fab fa-behance-square" />
+              <i :class="menu.icon" />
               <span class="text-">{{ menu.title }}</span>
             </section>
             <section>
-              <i :class="menu.icon" />
+              <i class="fas fa-angle-down" />
             </section>
           </dt>
           <dd v-for="(cmenu, key) of menu.children" v-show="menu.active" :key="key" :class="{ active: cmenu.active }">

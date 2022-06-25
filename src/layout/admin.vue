@@ -16,7 +16,7 @@ export default {
     <div class="content flex-1 bg-gray-200">
       <Navbar />
       <HistoryLink />
-      <div class="m-3 p-5 bg-white">
+      <div class="m-5">
         <router-view />
       </div>
     </div>

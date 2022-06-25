@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
+import { echart1, echart2 } from './echart'
 interface ICard {
   title: string
   price: number
@@ -14,6 +15,11 @@ const cards = ref<ICard[]>([
   { title: '订单数', price: 1243, icon: 'fas fa-award', iconColor: 'text-green-600', total: 83493, totalTitle: '总订单数' },
   { title: '评论数', price: 89944, icon: 'fas fa-baseball-ball', iconColor: 'text-red-500', total: 48920, totalTitle: '总评论' },
 ])
+
+nextTick(() => {
+  echarts.init(document.getElementById('echart1')).setOption(echart1)
+  echarts.init(document.getElementById('echart2')).setOption(echart2)
+})
 </script>
 
 <template>
@@ -37,6 +43,11 @@ const cards = ref<ICard[]>([
         <span>{{ card.total }}</span>
       </section>
     </el-card>
+  </div>
+
+  <div class="mt-5 grid grid-flow-col gap-3">
+    <div id="echart1" class="bg-white h-[500px]" />
+    <div id="echart2" class="bg-white h-[500px]" />
   </div>
 </template>
 

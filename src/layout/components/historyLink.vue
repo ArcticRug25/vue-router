@@ -10,8 +10,8 @@ const links = ref<{ title: string }[]>([
 </script>
 
 <template>
-  <div class="m-3 grid grid-flow-col gap-2 justify-start">
-    <a v-for="(n, index) of links" :key="index" class="bg-white rounded-md py-2 px-3 text-sm text-gray-600">
+  <div class="m-5 grid grid-flow-col gap-2 justify-start">
+    <a v-for="(n, index) of links" :key="index" class="bg-white rounded-md py-2 px-3 text-sm text-gray-600 shadow-md">
       {{ n.title }}
       <i class="fas fa-times ml-1" />
     </a>

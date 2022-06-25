@@ -3,11 +3,6 @@ import getRoutes from './view'
 import autoloadModuleRoutes from './module'
 import { env } from '@/utils'
 
-let routes = [] as RouteRecordRaw[]
-
-if (env.VITE_ROUTER_AUTOLOAD)
-  routes = getRoutes()
-else
-  routes = autoloadModuleRoutes()
+const routes: RouteRecordRaw[] = env.VITE_ROUTER_AUTOLOAD ? getRoutes() : autoloadModuleRoutes()
 
 export default routes

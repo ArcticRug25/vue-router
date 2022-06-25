@@ -11,8 +11,8 @@ export default {
 </script>
 
 <template>
-  <div class="admin h-screen w-screen flex">
-    <Menu />
+  <div class="admin min-h-screen w-screen flex">
+    <Menu class="hidden md:block" />
     <div class="content flex-1 bg-gray-200">
       <Navbar />
       <HistoryLink />

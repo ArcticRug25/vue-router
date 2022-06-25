@@ -55,7 +55,7 @@ const handle = (pmenu: IMenuItem, cmenu?: IMenuItem) => {
             <span class="text-">{{ menu.title }}</span>
           </section>
           <section>
-            <i class="fas fa-angle-down" />
+            <i class="fas fa-angle-down duration-300" :class="{ 'rotate-180': !menu.active }" />
           </section>
         </dt>
         <dd v-for="(cmenu, key) of menu.children" v-show="menu.active" :key="key" :class="{ active: cmenu.active }">
@@ -81,7 +81,7 @@ const handle = (pmenu: IMenuItem, cmenu?: IMenuItem) => {
         }
       }
       dd {
-        @apply py-3 pl-4 my-2 text-white rounded-md cursor-pointer hover:bg-blue-500 duration-300;
+        @apply py-3 pl-4 my-2 text-white rounded-md cursor-pointer bg-gray-700 hover:bg-blue-500 duration-300;
         &.active {
           @apply bg-blue-700;
         }

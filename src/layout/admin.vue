@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import Menu from './components/menu.vue'
+import Navbar from './components/navbar.vue'
+import HistoryLink from './components/historyLink.vue'
 </script>
 
 <script lang="ts">
@@ -12,7 +14,11 @@ export default {
   <div class="admin h-screen w-screen flex">
     <Menu />
     <div class="content flex-1 bg-gray-200">
-      <router-view />
+      <Navbar />
+      <HistoryLink />
+      <div class="m-3 p-5 bg-white">
+        <router-view />
+      </div>
     </div>
   </div>
 </template>

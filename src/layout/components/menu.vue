@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
+import { routerStore } from '@/store/routerStore'
+
+const routerPinia = routerStore()
 
 interface IMenuItem {
   title: string

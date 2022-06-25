@@ -1,10 +1,12 @@
 import _ from 'lodash'
 import type { App } from 'vue'
+import setupElementPlus from './elementui'
 import { setupTailwincss } from './tailwindcss'
 
 export function setupPlugins(app: App) {
-  setupTailwincss()
   autoRegisterComponent(app)
+  setupTailwincss()
+  setupElementPlus(app)
 }
 
 // 自动注册全局组件

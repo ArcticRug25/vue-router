@@ -23,7 +23,7 @@ nextTick(() => {
 </script>
 
 <template>
-  <div class="grid md:grid-flow-col gap-3">
+  <div class="grid md:grid-cols-4 gap-3">
     <el-card v-for="(card, index) of cards" :key="index" shadow="hover" :body-style="{ padding: '20px' }" class="cursor-pointer">
       <template #header>
         <div class="flex justify-between items-center">
@@ -45,9 +45,23 @@ nextTick(() => {
     </el-card>
   </div>
 
-  <div class="mt-5 grid md:grid-flow-col gap-3">
-    <div id="echart1" class="bg-white h-[500px] w-full" />
-    <div id="echart2" class="bg-white h-[500px] w-full" />
+  <div class="mt-5 grid md:grid-cols-2 gap-4">
+    <el-card shadow="always" :body-style="{ padding: '20px' }">
+      <template #header>
+        <div>
+          用户统计
+        </div>
+      </template>
+      <div id="echart1" class=" p-2 h-80 w-full" />
+    </el-card>
+    <el-card shadow="hover" :body-style="{ padding: '20px' }">
+      <template #header>
+        <div>
+          用户统计
+        </div>
+      </template>
+      <div id="echart2" class=" p-2 h-80 w-full" />
+    </el-card>
   </div>
 </template>
 

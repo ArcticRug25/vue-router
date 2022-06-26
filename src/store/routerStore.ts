@@ -16,6 +16,7 @@ function getRoutes() {
       route.children = route.children.filter(childRoute => childRoute.meta?.show)
       return route
     })
+    .filter(route => route.children.length)
 
   return routes
 }

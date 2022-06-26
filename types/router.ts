@@ -7,5 +7,7 @@ declare module 'vue-router' {
     show?: boolean
     title?: string
     icon: string
+    isClick?: boolean
+    permissions?: string[]
   }
 }

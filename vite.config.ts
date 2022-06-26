@@ -17,6 +17,7 @@ export default ({ command, mode }: ConfigEnv) => {
   const root = process.cwd()
   const env = parseEnv(loadEnv(mode, root))
   return {
+    devtool: 'source-map',
     plugins: setupVitePlugins(isBuild, env),
     resolve: {
       alias,

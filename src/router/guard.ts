@@ -7,6 +7,7 @@ class Guard {
 
   public run() {
     this.router.beforeEach((to, from) => {
+      debugger
       this.token = store.get('token')?.token
       // 匹配到父子路由的信息会进行合并
       // 登录处理

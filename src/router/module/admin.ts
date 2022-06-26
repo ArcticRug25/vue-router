@@ -3,6 +3,7 @@ import type { RouteRecordRaw } from 'vue-router'
 export default {
   name: 'admin',
   path: '/admin',
+  redirect: '/admin/home',
   component: () => import('@/layout/admin.vue'),
   meta: { auth: true },
   children: [

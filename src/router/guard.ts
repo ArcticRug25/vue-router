@@ -6,17 +6,18 @@ class Guard {
   }
 
   public run() {
-    this.router.beforeEach((to, from) => {
-      debugger
-      this.token = store.get('token')?.token
-      // 匹配到父子路由的信息会进行合并
-      // 登录处理
-      if (!this.isLogin(to))
-        return { name: 'login' }
+    this.router.beforeEach(this.beforeEach.bind(this))
+  }
 
-      if (!this.isGuest(to))
-        return from
-    })
+  private beforeEach(to: RouteLocationNormalized, from: RouteLocationNormalized) {
+    this.token = store.get('token')?.token
+    // 匹配到父子路由的信息会进行合并
+    // 登录处理
+    if (!this.isLogin(to))
+      return { name: 'login' }
+
+    if (!this.isGuest(to))
+      return from
   }
 
   private isGuest(route: RouteLocationNormalized) {

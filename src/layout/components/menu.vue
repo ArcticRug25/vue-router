@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import type { RouteRecordNormalized, RouteRecordRaw } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { routerStore } from '@/store/routerStore'
 
 const routerPinia = routerStore()
+const router = useRouter()
 
 const reset = () => {
   routerPinia.routes.forEach((route) => {
@@ -18,8 +20,10 @@ const reset = () => {
 const handle = (pmenu: RouteRecordNormalized, cRoute?: RouteRecordRaw) => {
   reset()
   pmenu.meta.isClick = true
-  if (cRoute && cRoute.meta)
+  if (cRoute && cRoute.meta) {
     cRoute.meta.isClick = true
+    router.push(cRoute)
+  }
 }
 </script>
 

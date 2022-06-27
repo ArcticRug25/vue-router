@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import userStore from '@/store/userStore'
+
+const userPinia = userStore()
 </script>
 
 <template>
@@ -11,8 +14,8 @@
     </el-breadcrumb>
 
     <div class="relative flex justify-center items-center group cursor-pointer">
-      <img src="/images/login.jpg" class="w-8 h-8 rounded-full object-cover">
-      <span class="ml-1 text-sm text-gray-600">ArcticRug25</span>
+      <img :src="userPinia.info?.avatar" class="w-8 h-8 rounded-full object-cover">
+      <span class="ml-1 text-sm text-gray-600">{{ userPinia.info?.name }}</span>
       <section class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap border rounded-md hidden">
         <div class="flex items-center cursor-pointer border-b py-3">
           <a class="fas fa-ad" />

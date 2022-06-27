@@ -10,7 +10,7 @@ class Guard {
     this.router.beforeEach(this.beforeEach.bind(this))
   }
 
-  private beforeEach(to: RouteLocationNormalized, from: RouteLocationNormalized) {
+  private async beforeEach(to: RouteLocationNormalized, from: RouteLocationNormalized) {
     this.token = store.get('token')?.token
     // 匹配到父子路由的信息会进行合并
     // 登录处理
@@ -20,12 +20,12 @@ class Guard {
     if (!this.isGuest(to))
       return from
 
-    this.getUserInfo()
+    await this.getUserInfo()
   }
 
   private getUserInfo() {
     if (this.token)
-      userStore().getUserInfo()
+      return userStore().getUserInfo()
   }
 
   private isGuest(route: RouteLocationNormalized) {

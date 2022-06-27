@@ -2,7 +2,7 @@ import Axios from '@/plugins/axios/axios'
 
 const http = new Axios({
   baseURL: '/api',
-  timeout: 1000,
+  timeout: 6000,
   headers: {},
 })
 

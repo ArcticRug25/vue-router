@@ -6,12 +6,13 @@ export default [
   {
     url: '/api/user/info',
     method: 'get',
+    timeout: 300,
     response: () => {
       return {
         code: 200,
         message: 'successful',
         result: {
-          name: 'vben',
+          name: 'ArcticRug25',
           age: 18,
           avatar: '/images/login.jpg',
         },

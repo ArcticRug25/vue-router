@@ -12,6 +12,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/auth/login.vue'),
     meta: { guest: true },
   },
+  {
+    path: '/:any(.*)',
+    name: 'notFound',
+    component: () => import('@/views/errors/404.vue'),
+  },
 ]
 
 export default routes

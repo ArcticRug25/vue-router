@@ -1,5 +1,6 @@
 import type { RouteLocationNormalized, Router } from 'vue-router'
 import { store } from '@/utils'
+import userStore from '@/store/userStore'
 
 class Guard {
   constructor(private router: Router, private token: string = '') {
@@ -18,6 +19,13 @@ class Guard {
 
     if (!this.isGuest(to))
       return from
+
+    this.getUserInfo()
+  }
+
+  private getUserInfo() {
+    if (this.token)
+      userStore().getUserInfo()
   }
 
   private isGuest(route: RouteLocationNormalized) {

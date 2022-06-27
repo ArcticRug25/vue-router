@@ -1,4 +1,5 @@
 import type { RouteLocationNormalized, Router } from 'vue-router'
+import { CacheEnum } from './../../types/cacheEnum'
 import { store } from '@/utils'
 import userStore from '@/store/userStore'
 
@@ -11,7 +12,7 @@ class Guard {
   }
 
   private async beforeEach(to: RouteLocationNormalized, from: RouteLocationNormalized) {
-    this.token = store.get('token')?.token
+    this.token = store.get(CacheEnum.TOKEN_NAME)?.token
     // 匹配到父子路由的信息会进行合并
     // 登录处理
     if (!this.isLogin(to))

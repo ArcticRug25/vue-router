@@ -5,7 +5,7 @@ interface IData {
 
 export default {
   set(key: string, data: any, expire?: number): void {
-    const cache: IData = data
+    const cache: IData = { data }
     if (expire)
       cache.expire = new Date().getTime() + data.expire * 1000
 

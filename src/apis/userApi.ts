@@ -16,7 +16,12 @@ interface LoginInterface {
   token: string
 }
 
-export function login(data: unknown) {
+export interface ILoginData {
+  account: string
+  password: string
+}
+
+export function login(data: ILoginData) {
   return http.request<LoginInterface>({
     url: 'login',
     method: 'post',

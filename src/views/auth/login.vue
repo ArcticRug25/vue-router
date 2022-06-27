@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { CacheEnum } from '../../../types/cacheEnum'
-import { login } from '@/apis/userApi'
 import v from '@/plugins/validate'
-import { store } from '@/utils'
+import * as utils from '@/utils'
+import type { ILoginData } from '@/apis/userApi'
 
 const router = useRouter()
 const { Form, Field, ErrorMessage, yup } = v
@@ -18,13 +17,8 @@ const schema = {
   password: { required: true, min: 3 },
 }
 
-const onSubmit = async (values: unknown) => {
-  const { result: { token } } = await login(values)
-  store.set(CacheEnum.TOKEN_NAME, {
-    token,
-    expire: 100,
-  })
-  router.push({ name: 'home' })
+const onSubmit = async (values: any) => {
+  utils.login1(values)
 }
 </script>
 

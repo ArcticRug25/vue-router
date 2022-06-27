@@ -4,7 +4,7 @@ import { Random } from 'mockjs'
 import type { MockMethod } from 'vite-plugin-mock'
 export default [
   {
-    url: '/api/info',
+    url: '/api/user/info',
     method: 'get',
     response: () => {
       return {
@@ -13,7 +13,7 @@ export default [
         result: {
           name: 'vben',
           age: 18,
-          avatar: '/avatar/1.jpg',
+          avatar: '/images/login.jpg',
         },
       }
     },

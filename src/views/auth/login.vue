@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { CacheEnum } from '../../../types/cacheEnum'
 import { login } from '@/apis/userApi'
 import v from '@/plugins/validate'
 import { store } from '@/utils'
@@ -19,7 +20,7 @@ const schema = {
 
 const onSubmit = async (values: unknown) => {
   const { result: { token } } = await login(values)
-  store.set('token', {
+  store.set(CacheEnum.TOKEN_NAME, {
     token,
     expire: 100,
   })

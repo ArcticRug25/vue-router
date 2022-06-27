@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import userStore from '@/store/userStore'
+import * as utils from '@/utils'
 
 const userPinia = userStore()
 </script>
@@ -25,9 +26,9 @@ const userPinia = userStore()
           <a class="fas fa-ad" />
           <span class="text-xs text-gray-600 ml-2">用户管理</span>
         </div>
-        <div class="flex items-center cursor-pointer py-3">
+        <div class="flex items-center cursor-pointer py-3" @click="utils.logout">
           <a class="fas fa-ad" />
-          <span class="text-xs text-gray-600 ml-2">个人中心</span>
+          <span class="text-xs text-gray-600 ml-2">退出登录</span>
         </div>
       </section>
     </div>

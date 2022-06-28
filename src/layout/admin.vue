@@ -17,7 +17,11 @@ export default {
       <Navbar />
       <HistoryLink />
       <div class="m-5">
-        <router-view />
+        <router-view v-slot="{ Component }">
+          <Transition enter-active-class="animate__animated animate__bounceInRight">
+            <component :is="Component" />
+          </Transition>
+        </router-view>
       </div>
     </div>
   </div>

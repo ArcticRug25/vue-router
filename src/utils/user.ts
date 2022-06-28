@@ -18,5 +18,6 @@ export async function login1(values: ILoginData) {
     token,
     // expire: ,
   })
-  router.push({ name: 'home' })
+  const routeName = storageStore.get(CacheEnum.REDIRECT_ROUTE_NAME) ?? 'home'
+  router.push({ name: routeName })
 }

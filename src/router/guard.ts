@@ -2,6 +2,7 @@ import type { RouteLocationNormalized, Router } from 'vue-router'
 import { CacheEnum } from './../../types/cacheEnum'
 import { store } from '@/utils'
 import userStore from '@/store/userStore'
+import storageStore from '@/utils/storageStore'
 
 class Guard {
   constructor(private router: Router, private token: string = '') {
@@ -34,7 +35,11 @@ class Guard {
   }
 
   private isLogin(route: RouteLocationNormalized): boolean {
-    return Boolean(!route.meta.auth || (route.meta.auth && this.token))
+    const state = Boolean(!route.meta.auth || (route.meta.auth && this.token))
+    if (!state)
+      storageStore.set(CacheEnum.REDIRECT_ROUTE_NAME, route.name)
+
+    return state
   }
 }
 

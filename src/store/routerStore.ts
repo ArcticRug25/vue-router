@@ -13,7 +13,12 @@ export const routerStore = defineStore('routerStore', {
   actions: {
     init() {
       this.getRoutes()
-      this.historyMenu = storageStore.get(CacheEnum.HISTORY_MENU)
+      this.historyMenu = storageStore.get(CacheEnum.HISTORY_MENU) ?? []
+    },
+    removeHistoryMenu(menu: IMenu) {
+      const index = this.historyMenu.indexOf(menu)
+      this.historyMenu.splice(index, 1)
+      storageStore.set(CacheEnum.HISTORY_MENU, this.historyMenu)
     },
     addHistoryMenu(route: RouteLocationNormalized) {
       if (!route.meta.isClick)

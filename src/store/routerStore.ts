@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia'
 import type { RouteLocationNormalized, RouteRecordNormalized } from 'vue-router'
 import { useRouter } from 'vue-router'
+import storageStore from '@/utils/storageStore'
 import type { IMenu } from '#/menu'
+import { CacheEnum } from '#/cacheEnum'
 
 export const routerStore = defineStore('routerStore', {
   state: () => ({
@@ -9,7 +11,13 @@ export const routerStore = defineStore('routerStore', {
     historyMenu: [] as IMenu[],
   }),
   actions: {
+    init() {
+      this.getRoutes()
+      this.historyMenu = storageStore.get(CacheEnum.HISTORY_MENU)
+    },
     addHistoryMenu(route: RouteLocationNormalized) {
+      if (!route.meta.isClick)
+        return
       const menu: IMenu = {
         ...route.meta,
         name: route.name as string,
@@ -19,6 +27,8 @@ export const routerStore = defineStore('routerStore', {
         this.historyMenu.unshift(menu)
       if (this.historyMenu.length > 10)
         this.historyMenu.pop()
+
+      storageStore.set(CacheEnum.HISTORY_MENU, this.historyMenu)
     },
     getRoutes() {
       const router = useRouter()

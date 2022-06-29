@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { routerStore } from './store/routerStore'
-routerStore().getRoutes()
 </script>
 
 <template>

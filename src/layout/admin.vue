@@ -1,8 +1,15 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 import Menu from './components/menu.vue'
 import Navbar from './components/navbar.vue'
 import HistoryLink from './components/historyLink.vue'
+import { routerStore } from '@/store/routerStore'
+const route = useRoute()
+const menuStore = routerStore()
+menuStore.init()
+onBeforeRouteUpdate(() => {
+  menuStore.addHistoryMenu(route)
+})
 </script>
 
 <script lang="ts">

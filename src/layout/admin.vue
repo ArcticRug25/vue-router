@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import Menu from './components/menu.vue'
 import Navbar from './components/navbar.vue'
 import HistoryLink from './components/historyLink.vue'

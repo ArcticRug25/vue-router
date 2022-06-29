@@ -3,6 +3,7 @@ import { CacheEnum } from './../../types/cacheEnum'
 import { store } from '@/utils'
 import userStore from '@/store/userStore'
 import storageStore from '@/utils/storageStore'
+import { routerStore } from '@/store/routerStore'
 
 class Guard {
   constructor(private router: Router, private token: string = '') {
@@ -23,6 +24,8 @@ class Guard {
       return from
 
     await this.getUserInfo()
+
+    routerStore().addHistoryMenu(to)
   }
 
   private getUserInfo() {

@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, watch } from 'vue'
 import type { RouteRecordNormalized, RouteRecordRaw } from 'vue-router'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { routerStore } from '@/store/routerStore'
 
 const routerPinia = routerStore()
 const router = useRouter()
+const route = useRoute()
 
 const reset = () => {
   routerPinia.routes.forEach((route) => {
@@ -25,16 +26,30 @@ const handle = (pmenu: RouteRecordNormalized, cRoute?: RouteRecordRaw) => {
     router.push(cRoute)
   }
 }
+
+watch(route, () => {
+  routerPinia.setCurrentMenu(route)
+}, {
+  immediate: true,
+})
 </script>
 
 <template>
-  <div class="menu w-[200px] bg-gray-800 p-4">
-    <div class="logo text-gray-300 flex items-center">
+  <div class="menu w-[200px] bg-gray-800">
+    <div class="logo text-gray-300 flex items-center p-4">
       <i class="fas fa-robot text-blue-500 mr-2 text-[30rpx]" />
       <span class="text-md">ArcticRug25</span>
     </div>
     <!-- 菜单 -->
     <div class="left-container">
+      <dl>
+        <dt class="p-0" :class="{ 'bg-blue-700 text-white p-3': $route.name === 'admin.home' }" @click="$router.push('/admin')">
+          <section>
+            <i class="fas fa-home" />
+            <span class="text-">首页</span>
+          </section>
+        </dt>
+      </dl>
       <dl v-for="(route, index) of routerPinia.routes" :key="index">
         <dt @click="handle(route)">
           <section>
@@ -59,7 +74,7 @@ const handle = (pmenu: RouteRecordNormalized, cRoute?: RouteRecordRaw) => {
     dl {
       @apply text-gray-300 text-sm;
       dt {
-        @apply text-sm mt-6 flex justify-between cursor-pointer items-center;
+        @apply text-sm p-4 flex justify-between cursor-pointer items-center;
         section {
           @apply flex items-center;
           i {

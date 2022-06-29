@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { RouteLocationNormalized, RouteRecordNormalized } from 'vue-router'
+import type { RouteLocationNormalized, RouteLocationNormalizedLoaded, RouteRecordNormalized } from 'vue-router'
 import { useRouter } from 'vue-router'
 import storageStore from '@/utils/storageStore'
 import type { IMenu } from '#/menu'
@@ -46,6 +46,17 @@ export const routerStore = defineStore('routerStore', {
         })
         .filter(route => route.children.length)
       this.routes = routes
+    },
+    setCurrentMenu(route: RouteLocationNormalizedLoaded) {
+      this.routes.forEach((m) => {
+        m.meta.isClick = false
+        m.children.forEach((c) => {
+          if (c.meta && c.name === route.name) {
+            m.meta.isClick = true
+            c.meta.isClick = true
+          }
+        })
+      })
     },
   },
 })

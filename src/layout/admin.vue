@@ -19,15 +19,22 @@ export default {
 </script>
 
 <template>
-  <div class="admin min-h-screen w-screen flex">
+  <div class="admin grid min-h-screen w-screen grid-cols-[auto_1fr]">
     <Menu class="hidden md:block" />
-    <div class="content flex-1 bg-gray-200">
-      <Navbar />
-      <HistoryLink />
-      <div class="m-5">
+    <div class="content bg-gray-200 grid grid-rows-[auto_1fr]">
+      <div>
+        <Navbar />
+        <HistoryLink />
+      </div>
+      <div class="p-3 relative overflow-y-auto">
         <router-view v-slot="{ Component }">
-          <Transition enter-active-class="animate__animated animate__bounceInRight">
-            <component :is="Component" />
+          <Transition
+            appear
+            class="animate__animated"
+            enter-active-class="animate__fadeInRight"
+            leave-active-class="animate__fadeOutLeft"
+          >
+            <component :is="Component" class="absolute w-full" />
           </Transition>
         </router-view>
       </div>
@@ -36,5 +43,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+.animate__fadeInRight {
+  animation-duration: .5s;
+}
+.animate__fadeOutLeft{
+  animation-duration: .3s;
+}
 </style>

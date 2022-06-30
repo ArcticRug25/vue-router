@@ -35,10 +35,10 @@ watch(route, () => {
 </script>
 
 <template>
-  <div class="menu w-[200px] bg-gray-800">
-    <div class="logo text-gray-300 flex items-center p-4">
+  <div class="menu w-[200px] bg-gray-800" :class="{ close: routerPinia.close }">
+    <div class="logo">
       <i class="fas fa-robot text-blue-500 mr-2 text-[30rpx]" />
-      <span class="text-md">ArcticRug25</span>
+      <span class="text-md text-white">ArcticRug25</span>
     </div>
     <!-- 菜单 -->
     <div class="left-container">
@@ -69,7 +69,10 @@ watch(route, () => {
 </template>
 
 <style lang="scss" scoped>
-.admin {
+.menu {
+  .logo {
+    @apply first-letter:text-gray-300 flex items-center p-4;
+  }
   .left-container {
     dl {
       @apply text-gray-300 text-sm;
@@ -86,6 +89,36 @@ watch(route, () => {
         @apply py-3 pl-4 my-2 text-white rounded-md cursor-pointer bg-gray-700 hover:bg-blue-500 duration-300;
         &.active {
           @apply bg-blue-700;
+        }
+      }
+    }
+  }
+  &.close {
+    @apply w-auto;
+    .logo {
+      i {
+        @apply mr-0;
+      }
+      span {
+        @apply hidden;
+      }
+    }
+    .left-container {
+      dl {
+        dt {
+          @apply flex justify-center;
+          section {
+            i {
+              @apply mr-0;
+            }
+            @apply flex justify-center;
+            span {
+              @apply hidden;
+            }
+            &:nth-of-type(2) {
+              @apply hidden;
+            }
+          }
         }
       }
     }

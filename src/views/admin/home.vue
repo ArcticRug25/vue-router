@@ -23,45 +23,47 @@ nextTick(() => {
 </script>
 
 <template>
-  <div class="grid md:grid-cols-4 gap-3">
-    <el-card v-for="(card, index) of cards" :key="index" shadow="hover" :body-style="{ padding: '20px' }" class="cursor-pointer">
-      <template #header>
-        <div class="flex justify-between items-center">
-          {{ card.title }}
-          <el-tag type="danger" size="small" effect="dark">
-            月
-          </el-tag>
-        </div>
-      </template>
+  <div>
+    <div class="grid md:grid-cols-4 gap-3">
+      <el-card v-for="(card, index) of cards" :key="index" shadow="hover" :body-style="{ padding: '20px' }" class="cursor-pointer">
+        <template #header>
+          <div class="flex justify-between items-center">
+            {{ card.title }}
+            <el-tag type="danger" size="small" effect="dark">
+              月
+            </el-tag>
+          </div>
+        </template>
 
-      <section class="flex mt-2 justify-between items-center">
-        <span class="text-3xl">$29322</span>
-        <i :class="[card.icon, card.iconColor]" class="text-4xl" />
-      </section>
-      <section class="text-base mt-5 flex justify-between">
-        {{ card.totalTitle }}
-        <span>{{ card.total }}</span>
-      </section>
-    </el-card>
-  </div>
+        <section class="flex mt-2 justify-between items-center">
+          <span class="text-3xl">$29322</span>
+          <i :class="[card.icon, card.iconColor]" class="text-4xl" />
+        </section>
+        <section class="text-base mt-5 flex justify-between">
+          {{ card.totalTitle }}
+          <span>{{ card.total }}</span>
+        </section>
+      </el-card>
+    </div>
 
-  <div class="mt-5 grid md:grid-cols-2 gap-4">
-    <el-card shadow="always" :body-style="{ padding: '20px' }">
-      <template #header>
-        <div>
-          用户统计
-        </div>
-      </template>
-      <div id="echart1" class=" p-2 h-80 w-full" />
-    </el-card>
-    <el-card shadow="hover" :body-style="{ padding: '20px' }">
-      <template #header>
-        <div>
-          用户统计
-        </div>
-      </template>
-      <div id="echart2" class=" p-2 h-80 w-full" />
-    </el-card>
+    <div class="mt-5 grid md:grid-cols-2 gap-4">
+      <el-card shadow="always" :body-style="{ padding: '20px' }">
+        <template #header>
+          <div>
+            用户统计
+          </div>
+        </template>
+        <div id="echart1" class=" p-2 h-80 w-full" />
+      </el-card>
+      <el-card shadow="hover" :body-style="{ padding: '20px' }">
+        <template #header>
+          <div>
+            用户统计
+          </div>
+        </template>
+        <div id="echart2" class=" p-2 h-80 w-full" />
+      </el-card>
+    </div>
   </div>
 </template>
 

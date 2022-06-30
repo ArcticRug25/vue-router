@@ -3,7 +3,6 @@
 </script>
 
 <template>
-  editor
   <router-view />
 </template>
 

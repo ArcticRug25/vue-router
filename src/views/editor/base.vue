@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  editor.base
+  <div>editor.base</div>
 </template>
 
 <style scoped>

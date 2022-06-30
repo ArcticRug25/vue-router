@@ -9,11 +9,15 @@ export const routerStore = defineStore('routerStore', {
   state: () => ({
     routes: [] as RouteRecordNormalized[],
     historyMenu: [] as IMenu[],
+    close: false,
   }),
   actions: {
     init() {
       this.getRoutes()
       this.historyMenu = storageStore.get(CacheEnum.HISTORY_MENU) ?? []
+    },
+    toggleState() {
+      this.close = !this.close
     },
     removeHistoryMenu(menu: IMenu) {
       const index = this.historyMenu.indexOf(menu)

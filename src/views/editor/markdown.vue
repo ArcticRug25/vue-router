@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  editor.markdown
+  <div>editor.markdown</div>
 </template>
 
 <style scoped>

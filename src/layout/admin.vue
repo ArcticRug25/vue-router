@@ -19,14 +19,14 @@ export default {
 </script>
 
 <template>
-  <div class="admin grid min-h-screen w-screen grid-cols-[auto_1fr]">
-    <Menu class="hidden md:block" />
+  <div class="admin grid min-h-screen w-screen md:grid-cols-[auto_1fr]">
+    <Menu />
     <div class="content bg-gray-200 grid grid-rows-[auto_1fr]">
       <div>
         <Navbar />
         <HistoryLink />
       </div>
-      <div class="p-3 relative overflow-y-auto">
+      <div class="m-3 relative overflow-y-auto">
         <router-view v-slot="{ Component }">
           <Transition
             appear

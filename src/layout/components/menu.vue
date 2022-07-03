@@ -124,4 +124,11 @@ watch(route, () => {
     }
   }
 }
+@media screen and(max-width:768px) {
+  .menu{
+    @apply h-screen w-[200px] absolute left-0 top-0 z-10;
+    &.close {
+    }
+  }
+}
 </style>

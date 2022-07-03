@@ -36,7 +36,7 @@ watch(route, () => {
 
 <template>
   <div class="menu w-[200px] bg-gray-800" :class="{ close: routerPinia.close }">
-    <div class="logo">
+    <div class="logo h-[56px]">
       <i class="fas fa-robot text-blue-500 mr-2 text-[30rpx]" />
       <span class="text-md text-white">ArcticRug25</span>
     </div>
@@ -70,6 +70,7 @@ watch(route, () => {
 
 <style lang="scss" scoped>
 .menu {
+  @apply duration-100;
   .logo {
     @apply first-letter:text-gray-300 flex items-center p-4;
   }

@@ -1,3 +1,4 @@
+// await-to-js
 export default function to<T, U = Error>(
   promise: Promise<T>,
   errorExt?: object,

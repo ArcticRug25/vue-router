@@ -35,42 +35,46 @@ watch(route, () => {
 </script>
 
 <template>
-  <div class="menu w-[200px] bg-gray-800" :class="{ close: routerPinia.close }">
-    <div class="logo h-[56px]">
-      <i class="fas fa-robot text-blue-500 mr-2 text-[30rpx]" />
-      <span class="text-md text-white">ArcticRug25</span>
+  <div class="admin-menu">
+    <div class="menu w-[200px] bg-gray-800" :class="{ close: routerPinia.close }">
+      <div class="logo h-[56px]">
+        <i class="fas fa-robot text-blue-500 mr-2 text-[30rpx]" />
+        <span class="text-md text-white">ArcticRug25</span>
+      </div>
+      <!-- 菜单 -->
+      <div class="left-container">
+        <dl>
+          <dt class="p-0" :class="{ 'bg-blue-700 text-white p-3': $route.name === 'admin.home' }" @click="$router.push('/admin')">
+            <section>
+              <i class="fas fa-home" />
+              <span class="text-">首页</span>
+            </section>
+          </dt>
+        </dl>
+        <dl v-for="(route, index) of routerPinia.routes" :key="index">
+          <dt @click="handle(route)">
+            <section>
+              <i :class="route.meta.icon" />
+              <span class="text-">{{ route.meta.title }}</span>
+            </section>
+            <section>
+              <i class="fas fa-angle-down duration-300" :class="{ 'rotate-180': !route.meta.isClick }" />
+            </section>
+          </dt>
+          <dd v-for="(childRoute, key) of route.children" v-show="route.meta.isClick" :key="key" :class="{ active: childRoute.meta?.isClick }" @click="handle(route, childRoute)">
+            {{ childRoute.meta?.title }}
+          </dd>
+        </dl>
+      </div>
     </div>
-    <!-- 菜单 -->
-    <div class="left-container">
-      <dl>
-        <dt class="p-0" :class="{ 'bg-blue-700 text-white p-3': $route.name === 'admin.home' }" @click="$router.push('/admin')">
-          <section>
-            <i class="fas fa-home" />
-            <span class="text-">首页</span>
-          </section>
-        </dt>
-      </dl>
-      <dl v-for="(route, index) of routerPinia.routes" :key="index">
-        <dt @click="handle(route)">
-          <section>
-            <i :class="route.meta.icon" />
-            <span class="text-">{{ route.meta.title }}</span>
-          </section>
-          <section>
-            <i class="fas fa-angle-down duration-300" :class="{ 'rotate-180': !route.meta.isClick }" />
-          </section>
-        </dt>
-        <dd v-for="(childRoute, key) of route.children" v-show="route.meta.isClick" :key="key" :class="{ active: childRoute.meta?.isClick }" @click="handle(route, childRoute)">
-          {{ childRoute.meta?.title }}
-        </dd>
-      </dl>
-    </div>
+    <div class="bg block md:hidden" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.menu {
-  @apply duration-100;
+.admin-menu {
+  .menu {
+  @apply h-full;
   .logo {
     @apply first-letter:text-gray-300 flex items-center p-4;
   }
@@ -125,11 +129,18 @@ watch(route, () => {
     }
   }
 }
+}
 @media screen and(max-width:768px) {
-  .menu{
-    @apply h-screen w-[200px] absolute left-0 top-0 z-10;
-    &.close {
+  .admin-menu {
+    @apply h-screen w-[200px] absolute left-0 top-0 z-50;
+    .menu{
+      @apply h-full z-50 absolute;
+      &.close {
+      }
     }
+     .bg {
+        @apply bg-gray-100 opacity-75 w-screen h-screen z-40 absolute left-0 top-0;
+      }
   }
 }
 </style>

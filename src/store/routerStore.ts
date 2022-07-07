@@ -19,6 +19,13 @@ export const routerStore = defineStore('routerStore', {
     toggleState() {
       this.close = !this.close
     },
+    toggleParentMenu(menu: any) {
+      this.routes.forEach((m) => {
+        m.meta.isClick = false
+        if (m.name === menu.name)
+          m.meta.isClick = true
+      })
+    },
     removeHistoryMenu(menu: IMenu) {
       const index = this.historyMenu.indexOf(menu)
       this.historyMenu.splice(index, 1)

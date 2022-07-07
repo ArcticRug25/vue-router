@@ -52,7 +52,10 @@ watch(route, () => {
           </dt>
         </dl>
         <dl v-for="(route, index) of routerPinia.routes" :key="index">
-          <dt>
+          <dt
+            @click="routerPinia.toggleParentMenu(route)
+            "
+          >
             <section>
               <i :class="route.meta.icon" />
               <span class="text-">{{ route.meta.title }}</span>
@@ -137,7 +140,6 @@ watch(route, () => {
         }
         &:hover {
           dd {
-            display: block !important;
             @apply block absolute left-full top-0 w-[200px] bg-gray-700;
           }
         }

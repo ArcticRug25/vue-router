@@ -52,7 +52,7 @@ watch(route, () => {
           </dt>
         </dl>
         <dl v-for="(route, index) of routerPinia.routes" :key="index">
-          <dt @click="handle(route)">
+          <dt>
             <section>
               <i :class="route.meta.icon" />
               <span class="text-">{{ route.meta.title }}</span>
@@ -61,8 +61,15 @@ watch(route, () => {
               <i class="fas fa-angle-down duration-300" :class="{ 'rotate-180': !route.meta.isClick }" />
             </section>
           </dt>
-          <dd v-for="(childRoute, key) of route.children" v-show="route.meta.isClick" :key="key" :class="{ active: childRoute.meta?.isClick }" @click="handle(route, childRoute)">
-            {{ childRoute.meta?.title }}
+          <dd :class="!route.meta.isClick || routerPinia.close ? 'hidden' : 'block'">
+            <div
+              v-for="(childRoute, key) of route.children"
+              :key="key"
+              :class="{ active: childRoute.meta?.isClick }"
+              @click="handle(route, childRoute)"
+            >
+              {{ childRoute.meta?.title }}
+            </div>
           </dd>
         </dl>
       </div>
@@ -73,6 +80,7 @@ watch(route, () => {
 
 <style lang="scss" scoped>
 .admin-menu {
+  @apply z-20;
   .menu {
   @apply h-full;
   .logo {
@@ -80,7 +88,7 @@ watch(route, () => {
   }
   .left-container {
     dl {
-      @apply text-gray-300 text-sm;
+      @apply text-gray-300 text-sm relative;
       dt {
         @apply text-sm p-4 flex justify-between cursor-pointer items-center;
         section {
@@ -91,9 +99,11 @@ watch(route, () => {
         }
       }
       dd {
-        @apply py-3 pl-4 my-2 text-white rounded-md cursor-pointer bg-gray-700 hover:bg-blue-500 duration-300;
-        &.active {
-          @apply bg-blue-700;
+        div {
+          @apply py-3 pl-4 my-2 text-white rounded-md cursor-pointer bg-gray-700 hover:bg-blue-500 duration-300;
+          &.active {
+            @apply bg-blue-700;
+          }
         }
       }
     }
@@ -123,6 +133,12 @@ watch(route, () => {
             &:nth-of-type(2) {
               @apply hidden;
             }
+          }
+        }
+        &:hover {
+          dd {
+            display: block !important;
+            @apply block absolute left-full top-0 w-[200px] bg-gray-700;
           }
         }
       }

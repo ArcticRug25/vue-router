@@ -83,7 +83,7 @@ watch(route, () => {
 
 <style lang="scss" scoped>
 .admin-menu {
-  @apply z-20 duration-200;
+  @apply z-20;
   .menu {
   @apply h-full;
   .logo {

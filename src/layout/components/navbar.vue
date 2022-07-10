@@ -24,7 +24,7 @@ const menuStore = routerStore()
     <div class="relative flex justify-center items-center group cursor-pointer">
       <img :src="userPinia.info?.avatar" class="w-8 h-8 rounded-full object-cover">
       <span class="ml-1 text-sm text-gray-600">{{ userPinia.info?.name }}</span>
-      <section class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap border rounded-md hidden">
+      <section class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap border rounded-md z-10 hidden">
         <div class="flex items-center cursor-pointer border-b py-3">
           <a class="fas fa-ad" />
           <span class="text-xs text-gray-600 ml-2">文档资料</span>

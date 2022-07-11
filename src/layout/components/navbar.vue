@@ -5,6 +5,10 @@ import * as utils from '@/utils'
 
 const userPinia = userStore()
 const menuStore = routerStore()
+
+const fullScreen = () => {
+  document.documentElement.requestFullscreen()
+}
 </script>
 
 <template>
@@ -22,6 +26,7 @@ const menuStore = routerStore()
       </el-breadcrumb>
     </div>
     <div class="relative flex justify-center items-center group cursor-pointer">
+      <i class="fas fa-border-all mr-2" @click="fullScreen" />
       <img :src="userPinia.info?.avatar" class="w-8 h-8 rounded-full object-cover">
       <span class="ml-1 text-sm text-gray-600">{{ userPinia.info?.name }}</span>
       <section class="group-hover:block absolute top-full bg-white shadow-sm px-5 whitespace-nowrap border rounded-md z-10 hidden">

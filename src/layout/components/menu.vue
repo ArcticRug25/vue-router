@@ -43,14 +43,6 @@ watch(route, () => {
       </div>
       <!-- 菜单 -->
       <div class="left-container">
-        <dl>
-          <dt class="p-0" :class="{ 'bg-blue-700 text-white p-3': $route.name === 'admin.home' }" @click="$router.push('/admin')">
-            <section>
-              <i class="fas fa-home" />
-              <span class="text-">首页</span>
-            </section>
-          </dt>
-        </dl>
         <dl v-for="(route, index) of routerPinia.routes" :key="index">
           <dt
             @click="routerPinia.toggleParentMenu(route)

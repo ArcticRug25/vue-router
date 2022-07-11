@@ -11,8 +11,8 @@ const menuStore = routerStore()
   <div class="bg-white p-3 px-5 flex justify-between items-center">
     <div class="flex items-center">
       <div @click="menuStore.toggleState">
-        <i v-if="menuStore.close" class="fas fa-caret-square-left mr-2 text-gray-700 cursor-pointer" />
-        <i v-else class="fas fa-caret-square-right mr-2 text-gray-700 cursor-pointer" />
+        <i v-if="menuStore.close" class="fas fa-align-left mr-2 text-gray-700 cursor-pointer" />
+        <i v-else class="fas fa-align-right mr-2 text-gray-700 cursor-pointer" />
       </div>
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">

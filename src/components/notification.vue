@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 
 const activeName = ref('site')
 const show = ref<boolean>(false)
+
+nextTick(() => {
+  document.documentElement.addEventListener('click', () => {
+    show.value = false
+  })
+})
 </script>
 
 <template>
   <div class="notification">
-    <i class="fas fa-align-justify" @click="show = !show" />
-    <el-tabs v-show="show" v-model="activeName" class="lists">
+    <i class="fas fa-align-justify" @click.stop="show = !show" />
+    <el-tabs v-show="show" v-model="activeName" class="lists" @click.stop>
       <el-tab-pane label="系统通知" name="site">
         <a href="">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbaaaaaaaaaa</a>
         <a href="">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbaaaaaaaaaaaaaa</a>

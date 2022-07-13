@@ -109,8 +109,7 @@ watch(route, () => {
   .admin-menu {
    &.close {
     .menu{
-@apply w-auto;
-
+      @apply w-auto;
       .logo {
         i {
           @apply mr-0;

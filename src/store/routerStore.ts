@@ -10,6 +10,7 @@ export const routerStore = defineStore('routerStore', {
     routes: [] as RouteRecordNormalized[],
     historyMenu: [] as IMenu[],
     close: false,
+    route: null as null | RouteLocationNormalized,
   }),
   actions: {
     init() {
@@ -34,6 +35,7 @@ export const routerStore = defineStore('routerStore', {
     addHistoryMenu(route: RouteLocationNormalized) {
       if (!route.meta.isClick)
         return
+      this.route = route
       const menu: IMenu = {
         ...route.meta,
         name: route.name as string,

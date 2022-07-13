@@ -3,6 +3,7 @@ import { routerStore } from '@/store/routerStore'
 import userStore from '@/store/userStore'
 import * as utils from '@/utils'
 import Notification from '@/components/notification.vue'
+import Breadcrumb from '@/components/breadcrumb.vue'
 
 const userPinia = userStore()
 const menuStore = routerStore()
@@ -19,12 +20,7 @@ const fullScreen = () => {
         <i v-if="menuStore.close" class="fas fa-align-left mr-2 text-gray-700 cursor-pointer" />
         <i v-else class="fas fa-align-right mr-2 text-gray-700 cursor-pointer" />
       </div>
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">
-          编辑器
-        </el-breadcrumb-item>
-        <el-breadcrumb-item>富文本编辑器</el-breadcrumb-item>
-      </el-breadcrumb>
+      <Breadcrumb class="hidden md:block" />
     </div>
     <div class="relative flex justify-center items-center cursor-pointer">
       <Notification class="mr-8" />

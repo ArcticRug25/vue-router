@@ -15,6 +15,7 @@ export default [
           name: 'ArcticRug25',
           age: 18,
           avatar: '/images/login.jpg',
+          permissions: ['editor_markdown', 'article_edit'],
         },
       }
     },

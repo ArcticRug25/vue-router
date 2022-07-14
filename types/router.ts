@@ -8,6 +8,6 @@ declare module 'vue-router' {
     title?: string
     icon?: string
     isClick?: boolean
-    permissions?: string[]
+    permission?: string
   }
 }

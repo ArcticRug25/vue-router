@@ -23,8 +23,6 @@ class Guard {
     if (!this.isGuest(to))
       return from
 
-    await this.getUserInfo()
-
     routerStore().addHistoryMenu(to)
   }
 

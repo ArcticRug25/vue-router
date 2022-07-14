@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { RouteLocationNormalized, RouteLocationNormalizedLoaded, RouteRecordNormalized } from 'vue-router'
+import type { RouteLocationNormalized, RouteLocationNormalizedLoaded, RouteRecordNormalized, RouteRecordRaw } from 'vue-router'
 import { useRouter } from 'vue-router'
 import storageStore from '@/utils/storageStore'
 import type { IMenu } from '#/menu'
@@ -69,6 +69,16 @@ export const routerStore = defineStore('routerStore', {
             c.meta.isClick = true
           }
         })
+      })
+    },
+    getHistoryMenu() {
+      const routes = [] as RouteRecordRaw[]
+      const router = useRouter()
+      router.getRoutes().map(r => routes.push(...r.children))
+
+      const menus: IMenu[] = storageStore.get(CacheEnum.HISTORY_MENU) ?? []
+      return menus.filter((m) => {
+        return routes.some(r => r.name === m.name)
       })
     },
   },

@@ -11,3 +11,10 @@ interface ImportMetaEnv extends ViteEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+
+declare namespace toastui {
+  class Editor {
+    constructor(options: any)
+    getMarkdown: () => any
+  }
+}

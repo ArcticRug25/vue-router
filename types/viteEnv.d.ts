@@ -16,5 +16,7 @@ declare namespace toastui {
   class Editor {
     constructor(options: any)
     getMarkdown: () => any
+    getHTML: () => any
+    on: (event: string, callback: Function) => void
   }
 }

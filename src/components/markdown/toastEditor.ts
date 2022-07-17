@@ -1,6 +1,6 @@
 export default class {
   editor
-  constructor(el: string, public height: string, initialValue: string) {
+  constructor(el: string, initialValue: string, public height: string) {
     this.editor = new toastui.Editor({
       el: document.querySelector(el),
       initialEditType: 'markdown',

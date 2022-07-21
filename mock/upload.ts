@@ -1,4 +1,4 @@
-// test.ts
+// test.t
 
 import { Random } from 'mockjs'
 import type { MockMethod } from 'vite-plugin-mock'

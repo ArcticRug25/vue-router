@@ -4,7 +4,7 @@ import { Random } from 'mockjs'
 import type { MockMethod } from 'vite-plugin-mock'
 export default [
   {
-    url: '/api/upload/image',
+    url: '/api/upload/info',
     method: 'get',
     timeout: 300,
     response: () => {

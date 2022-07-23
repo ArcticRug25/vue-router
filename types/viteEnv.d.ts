@@ -18,5 +18,7 @@ declare namespace toastui {
     getMarkdown: () => any
     getHTML: () => any
     on: (event: string, callback: Function) => void
+    removeHook: (type: string) => void
+    addHook: (type: string, handler: Function) => void
   }
 }

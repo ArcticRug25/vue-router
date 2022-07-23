@@ -88,9 +88,9 @@
     js-tokens "^4.0.0"
 
 "@babel/parser@^7.16.4":
-  version "7.18.5"
-  resolved "https://registry.npmmirror.com/@babel/parser/-/parser-7.18.5.tgz#337062363436a893a2d22faa60be5bb37091c83c"
-  integrity sha512-YZWVaglMiplo7v8f1oMQ5ZPQr0vn7HPeZXxXWsxXJRjGVrzUFn9OxFQl1sb5wzfootjA/yChhW84BV+383FSOw==
+  version "7.18.9"
+  resolved "https://registry.npmmirror.com/@babel/parser/-/parser-7.18.9.tgz#f2dde0c682ccc264a9a8595efd030a5cc8fd2539"
+  integrity sha512-9uJveS9eY9DJ0t64YbIBZICtJy8a5QrDEVdiLCG97fVLpDTpGX7t8mMSb6OWw6Lrnjqj4O8zwjELX3dhoMgiBg==
 
 "@babel/runtime@^7.15.4":
   version "7.18.3"
@@ -372,37 +372,37 @@
   resolved "https://registry.npmmirror.com/@vitejs/plugin-vue/-/plugin-vue-2.3.3.tgz#fbf80cc039b82ac21a1acb0f0478de8f61fbf600"
   integrity sha512-SmQLDyhz+6lGJhPELsBdzXGc+AcaT8stgkbiTFGpXPe8Tl1tJaBw1A6pxDqDuRsVkD8uscrkx3hA7QDOoKYtyw==
 
-"@volar/code-gen@0.34.17":
-  version "0.34.17"
-  resolved "https://registry.npmmirror.com/@volar/code-gen/-/code-gen-0.34.17.tgz#fd46e369454e6bd9599b511500b4c43acb9730bd"
-  integrity sha512-rHR7BA71BJ/4S7xUOPMPiB7uk6iU9oTWpEMZxFi5VGC9iJmDncE82WzU5iYpcbOBCVHsOjMh0+5CGMgdO6SaPA==
+"@volar/code-gen@0.35.0":
+  version "0.35.0"
+  resolved "https://registry.npmmirror.com/@volar/code-gen/-/code-gen-0.35.0.tgz#6b59b0b0b5117f4055cd98c9d83a752de935c791"
+  integrity sha512-MUKPjE6VL97R2Dg3MwUexjKsdHRhX2cEQUWDtl7Zgn7fe60mULQOHcZZ+IU49eTgyOjAj0Z2hm7hub/nBxduxw==
   dependencies:
-    "@volar/source-map" "0.34.17"
+    "@volar/source-map" "0.35.0"
 
-"@volar/source-map@0.34.17":
-  version "0.34.17"
-  resolved "https://registry.npmmirror.com/@volar/source-map/-/source-map-0.34.17.tgz#79efc4d088e11f59fc857953185a1f852df70968"
-  integrity sha512-3yn1IMXJGGWB/G817/VFlFMi8oh5pmE7VzUqvgMZMrppaZpKj6/juvJIEiXNxRsgWc0RxIO8OSp4htdPUg1Raw==
+"@volar/source-map@0.35.0":
+  version "0.35.0"
+  resolved "https://registry.npmmirror.com/@volar/source-map/-/source-map-0.35.0.tgz#d71f5d8040a9178b052bd92cca1e86353b52a32f"
+  integrity sha512-VvVyCW8SEQ297zoeZNi4HOSLU8H7/xbGg4WpcpVOy080y/MXTxjIZshSlMHx45EB91U2vk0gbgd2R/d9uyY+3A==
 
-"@volar/vue-code-gen@0.34.17":
-  version "0.34.17"
-  resolved "https://registry.npmmirror.com/@volar/vue-code-gen/-/vue-code-gen-0.34.17.tgz#55ca9c21b38c91bf362761b268a77b9f0ecae8bf"
-  integrity sha512-17pzcK29fyFWUc+C82J3JYSnA+jy3QNrIldb9kPaP9Itbik05ZjEIyEue9FjhgIAuHeYSn4LDM5s6nGjxyfhsQ==
+"@volar/vue-code-gen@0.35.0":
+  version "0.35.0"
+  resolved "https://registry.npmmirror.com/@volar/vue-code-gen/-/vue-code-gen-0.35.0.tgz#5f79bd8ac9c35017771319b8bf9fb0de31893a43"
+  integrity sha512-IqIkzs3eRlJjABVXXBf5ik4/a8lQ3wqKemWMR33+KzOmj5xtXS+lgMMLNXJpj0Mw2nOLVl0I2KuIaTHFy485DQ==
   dependencies:
-    "@volar/code-gen" "0.34.17"
-    "@volar/source-map" "0.34.17"
+    "@volar/code-gen" "0.35.0"
+    "@volar/source-map" "0.35.0"
     "@vue/compiler-core" "^3.2.36"
     "@vue/compiler-dom" "^3.2.36"
     "@vue/shared" "^3.2.36"
 
-"@volar/vue-typescript@0.34.17":
-  version "0.34.17"
-  resolved "https://registry.npmmirror.com/@volar/vue-typescript/-/vue-typescript-0.34.17.tgz#497eb471ebac25ff61af04031b78ec71a34d470b"
-  integrity sha512-U0YSVIBPRWVPmgJHNa4nrfq88+oS+tmyZNxmnfajIw9A/GOGZQiKXHC0k09SVvbYXlsjgJ6NIjhm9NuAhGRQjg==
+"@volar/vue-typescript@0.35.0":
+  version "0.35.0"
+  resolved "https://registry.npmmirror.com/@volar/vue-typescript/-/vue-typescript-0.35.0.tgz#e51d93c86d16f6ef75f38d6410f11f4a48ea807f"
+  integrity sha512-Ojn98P888wWbk1qeR5f6spgtJZMwUos+OkJfZpzyafN5S21LxF58o7DhhNG8rMm1zMNUQHb+evlp5AXI5zHOmA==
   dependencies:
-    "@volar/code-gen" "0.34.17"
-    "@volar/source-map" "0.34.17"
-    "@volar/vue-code-gen" "0.34.17"
+    "@volar/code-gen" "0.35.0"
+    "@volar/source-map" "0.35.0"
+    "@volar/vue-code-gen" "0.35.0"
     "@vue/compiler-sfc" "^3.2.36"
     "@vue/reactivity" "^3.2.36"
 
@@ -3062,7 +3062,7 @@ type-fest@^0.8.1:
   resolved "https://registry.npmmirror.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
 
-typescript@^4.5.4:
+typescript@4.7.3:
   version "4.7.3"
   resolved "https://registry.npmmirror.com/typescript/-/typescript-4.7.3.tgz#8364b502d5257b540f9de4c40be84c98e23a129d"
   integrity sha512-WOkT3XYvrpXx4vMMqlD+8R8R37fZkjyLGlxavMc4iB8lrl8L0DeTcHbYgw/v0N/z9wAFsgBhcsF0ruoySS22mA==
@@ -3185,12 +3185,12 @@ vue-router@4:
   dependencies:
     "@vue/devtools-api" "^6.0.0"
 
-vue-tsc@^0.34.7:
-  version "0.34.17"
-  resolved "https://registry.npmmirror.com/vue-tsc/-/vue-tsc-0.34.17.tgz#332fc5c31d64bb9b74b0f26050f3ab067a9a7d6f"
-  integrity sha512-jzUXky44ZLHC4daaJag7FQr3idlPYN719/K1eObGljz5KaS2UnVGTU/XSYCd7d6ampYYg4OsyalbHyJIxV0aEQ==
+vue-tsc@0.35.0:
+  version "0.35.0"
+  resolved "https://registry.npmmirror.com/vue-tsc/-/vue-tsc-0.35.0.tgz#3cdd835188917ddc3d24429d585be1dd7ac308c8"
+  integrity sha512-RcL7PM3M1nSaVQU84mRPOXk1t/mAZ25QCx4L0rNQzozJYhz1wSVQWYqq9UfhE2lW8nMAQzQtLZgvjaPR4Q29ZA==
   dependencies:
-    "@volar/vue-typescript" "0.34.17"
+    "@volar/vue-typescript" "0.35.0"
 
 vue@^3.2.25:
   version "3.2.37"

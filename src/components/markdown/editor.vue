@@ -27,14 +27,12 @@ nextTick(() => {
 </template>
 
 <style lang="scss" scoped>
-@import 'https://uicdn.toast.com/editor/latest/toastui-editor.min.css';
-
 #editor {
   @apply bg-white;
   :deep(.toastui-editor-mode-switch) {
     @apply hidden #{!important};
   }
-  .full-screen {
+  :deep(.toastui-editor-defaultUI).full-screen {
     @apply fixed left-0 top-0 right-0 bottom-0 z-50 bg-white;
   }
 }

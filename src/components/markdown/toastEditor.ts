@@ -1,3 +1,5 @@
+import Editor from '@toast-ui/editor'
+import type { ToolbarItemOptions } from '@toast-ui/editor/types/ui'
 import { uploadImage } from '@/apis/uploadApi'
 
 interface BlobA extends Blob {
@@ -6,9 +8,10 @@ interface BlobA extends Blob {
 
 export default class {
   editor
+  isFullscreen: Boolean = false
   constructor(el: string, initialValue: string, public height: string) {
-    this.editor = new toastui.Editor({
-      el: document.querySelector(el),
+    this.editor = new Editor({
+      el: document.querySelector(el) as HTMLDivElement,
       initialEditType: 'markdown',
       previewStyle: 'vertical',
       toolbarItems: this.toolbar(),
@@ -18,7 +21,7 @@ export default class {
     this.imageHook()
   }
 
-  private toolbar() {
+  private toolbar(): (string | ToolbarItemOptions)[][] {
     return [
       ['heading', 'bold', 'italic', 'strike'],
       ['hr', 'quote'],
@@ -30,6 +33,7 @@ export default class {
         el: this.fullScreen(),
         command: 'fullScreen',
         tooltip: 'FullScreen',
+        name: 'fullScreen',
       }],
     ]
   }
@@ -40,10 +44,29 @@ export default class {
     button.style.margin = '0'
 
     button.addEventListener('click', () => {
-      this.editor.setHeight('100vh')
+      this.toggleFullscreen()
+    })
+
+    document.documentElement.addEventListener('keyup', (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && this.isFullscreen)
+        this.toggleFullscreen()
     })
 
     return button
+  }
+
+  private toggleFullscreen() {
+    const ui = document.querySelector('.toastui-editor-defaultUI') as HTMLDivElement
+    ui.classList.toggle('full-screen')
+    this.isFullscreen = !this.isFullscreen
+
+    if (!this.isFullscreen) {
+      this.editor.setHeight(this.height)
+      this.editor.focus()
+    }
+    else {
+      this.editor.setHeight('100vh')
+    }
   }
 
   private imageHook() {

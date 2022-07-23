@@ -1,5 +1,6 @@
 import type { ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
+import { visualizer } from 'rollup-plugin-visualizer'
 import alias from './vite/alias'
 import { parseEnv } from './vite/util'
 import { setupVitePlugins } from './vite/plugins'
@@ -18,7 +19,7 @@ export default ({ command, mode }: ConfigEnv) => {
   const env = parseEnv(loadEnv(mode, root))
   return {
     devtool: 'source-map',
-    plugins: setupVitePlugins(isBuild, env),
+    plugins: [...setupVitePlugins(isBuild, env), visualizer()],
     resolve: {
       alias,
     },

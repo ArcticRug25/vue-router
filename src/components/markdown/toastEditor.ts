@@ -11,10 +11,39 @@ export default class {
       el: document.querySelector(el),
       initialEditType: 'markdown',
       previewStyle: 'vertical',
+      toolbarItems: this.toolbar(),
       height,
       initialValue,
     })
     this.imageHook()
+  }
+
+  private toolbar() {
+    return [
+      ['heading', 'bold', 'italic', 'strike'],
+      ['hr', 'quote'],
+      ['ul', 'ol', 'task', 'indent', 'outdent'],
+      ['table', 'image', 'link'],
+      ['code', 'codeblock'],
+      // Using Option: Customize the last button
+      [{
+        el: this.fullScreen(),
+        command: 'fullScreen',
+        tooltip: 'FullScreen',
+      }],
+    ]
+  }
+
+  private fullScreen() {
+    const button = document.createElement('button') as HTMLButtonElement
+    button.innerHTML = '全屏'
+    button.style.margin = '0'
+
+    button.addEventListener('click', () => {
+      this.editor.setHeight('100vh')
+    })
+
+    return button
   }
 
   private imageHook() {

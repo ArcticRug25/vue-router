@@ -3,12 +3,20 @@ export default class {
   constructor(el: string, callback: Function, config: { [key: string]: any }) {
     const WangEditor = wangEditor
     this.editor = new WangEditor(el)
-    this.editor.config.height = config.height
+    Object.assign(this.editor.config, config)
 
     this.editor.config.onchange = callback
-
+    this.editor.config.uploadImgHooks = this.uploadImage()
     this.editor.create()
 
     this.editor.txt.html(config.modelValue)
+  }
+
+  uploadImage() {
+    return {
+      customInsert: (insertImgFn: Function, result: any) => {
+        insertImgFn(result.result.url)
+      },
+    }
   }
 }

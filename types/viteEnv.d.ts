@@ -27,4 +27,5 @@ declare namespace toastui {
 declare class wangEditor {
   constructor(el: string)
   create: () => void
+  config: { [key: string]: any }
 }

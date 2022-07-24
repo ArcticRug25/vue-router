@@ -11,13 +11,13 @@ const props = withDefaults(defineProps<WangEditorProps>(), {
 })
 
 nextTick(() => {
-  const wangEditor = new WangEditor()
+  const wangEditor = new WangEditor('#wang-editor', props)
 })
 </script>
 
 <template>
   <div id="wang-editor">
-    a
+    <p>a</p>
   </div>
 </template>
 

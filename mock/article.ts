@@ -13,7 +13,7 @@ export default [
         message: 'successful',
         result: new Array(20).fill(null).map((article, index) => {
           return {
-            id: index,
+            id: index + 1,
             title: Random.ctitle(),
             content: Random.cparagraph(),
           }

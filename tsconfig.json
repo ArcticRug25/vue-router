@@ -16,7 +16,7 @@
       "@/*": ["./src/*"],
       "#/*": ["./types/*"]
     },
-    "types": ["element-plus/global"]
+    "types": ["element-plus/global", "echarts", "lodash"]
   },
   "include": [
     "src/**/*.ts",
@@ -24,7 +24,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "vite.config.ts",
-    "vite/**/*.ts",
+    // "vite/**/*.ts",
     "mock/**/*.ts",
     "types/**/*.d.ts",
     "types/**/*.ts"

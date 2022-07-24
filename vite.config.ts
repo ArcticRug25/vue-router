@@ -1,9 +1,9 @@
 import type { ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
 import { visualizer } from 'rollup-plugin-visualizer'
-import AutoImport from 'unplugin-auto-import/webpack'
-import Components from 'unplugin-vue-components/webpack'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// import AutoImport from 'unplugin-auto-import/webpack'
+// import Components from 'unplugin-vue-components/webpack'
+// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import alias from './vite/alias'
 import { parseEnv } from './vite/util'
 import { setupVitePlugins } from './vite/plugins'
@@ -25,12 +25,13 @@ export default ({ command, mode }: ConfigEnv) => {
     plugins: [
       ...setupVitePlugins(isBuild, env),
       visualizer(),
-      AutoImport({
-        resolvers: [ElementPlusResolver()],
-      }),
-      Components({
-        resolvers: [ElementPlusResolver()],
-      })],
+      // AutoImport({
+      //   resolvers: [ElementPlusResolver()],
+      // }),
+      // Components({
+      //   resolvers: [ElementPlusResolver()],
+      // }),
+    ],
     resolve: {
       alias,
     },

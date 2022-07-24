@@ -4,21 +4,25 @@ import WangEditor from './wangEditor'
 
 interface WangEditorProps {
   height?: number
+  modelValue?: string
 }
 
 const props = withDefaults(defineProps<WangEditorProps>(), {
   height: 300,
+  modelValue: '',
 })
 
+const emit = defineEmits(['update:modelValue'])
+
 nextTick(() => {
-  const wangEditor = new WangEditor('#wang-editor', props)
+  const wangEditor = new WangEditor('#wang-editor', (newHtml: string) => {
+    emit('update:modelValue', newHtml)
+  }, props)
 })
 </script>
 
 <template>
-  <div id="wang-editor">
-    <p>a</p>
-  </div>
+  <div id="wang-editor" />
 </template>
 
 <style lang="scss" scoped>

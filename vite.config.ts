@@ -27,9 +27,14 @@ export default ({ command, mode }: ConfigEnv) => {
       visualizer(),
       // AutoImport({
       //   resolvers: [ElementPlusResolver()],
+      //   imports: ['vue', 'vue-router'],
+      //   dts: 'types/auto-imports.d.ts',
       // }),
       // Components({
       //   resolvers: [ElementPlusResolver()],
+      //   dirs: ['src/components'],
+      //   directoryAsNamespace: true,
+      //   dts: 'types/components.d.ts',
       // }),
     ],
     resolve: {

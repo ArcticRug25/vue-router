@@ -23,3 +23,8 @@ declare namespace toastui {
     setHeight: (height: string) => void
   }
 }
+
+declare class wangEditor {
+  constructor(el: string)
+  create: () => void
+}

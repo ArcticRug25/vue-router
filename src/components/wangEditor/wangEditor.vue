@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import WangEditor from '@/components/wangEditor/wangEditor.vue'
+
 </script>
 
 <template>
-  <WangEditor />
+  av
 </template>
 
 <style scoped>

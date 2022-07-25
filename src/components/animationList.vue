@@ -1,25 +1,28 @@
 <script setup lang="ts">
 import gsap from 'gsap'
+import type { RendererElement } from 'vue'
 
 interface AnimationProps {
   tag?: string
+  duration?: number
+  delay?: number
 }
 const props = withDefaults(defineProps<AnimationProps>(), {
   tag: 'div',
+  duration: 0.5,
+  delay: 0.2,
 })
-const beforeEnter = (el: Element) => {
+const beforeEnter = (el: RendererElement) => {
   gsap.set(el, {
     opacity: 0,
   })
 }
 
-const enter = (el: Element) => {
-  if (el instanceof HTMLElement) {
-    gsap.to(el, {
-      opacity: 1,
-      delay: (el.dataset.index as unknown as number) * 0.2,
-    })
-  }
+const enter = (el: RendererElement) => {
+  gsap.to(el, {
+    opacity: 1,
+    delay: (el.dataset.index) * props.delay,
+  })
 }
 </script>
 
@@ -31,7 +34,7 @@ const enter = (el: Element) => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .animate-list {
   position: relative;
   .v-leave-active {

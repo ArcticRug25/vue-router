@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { nextTick, ref } from 'vue'
+import * as echarts from 'echarts'
 import { echart1, echart2 } from './echart'
 interface ICard {
   title: string

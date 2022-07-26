@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': ^0.25.1
-  '@toast-ui/editor': ^3.1.8
+  '@toast-ui/editor': ^3.1.9
   '@types/echarts': ^4.9.16
   '@types/lodash': ^4.14.182
   '@types/node': ^18.0.0
@@ -32,6 +32,7 @@ specifiers:
   vue: ^3.2.25
   vue-router: '4'
   vue-tsc: 0.35.0
+  wangeditor: ^4.7.15
   yup: ^0.32.11
 
 dependencies:
@@ -50,6 +51,7 @@ dependencies:
   vee-validate: 4.6.2_vue@3.2.37
   vue: 3.2.37
   vue-router: 4.1.2_vue@3.2.37
+  wangeditor: 4.7.15
   yup: 0.32.11
 
 devDependencies:
@@ -203,6 +205,14 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.18.9
+
+  /@babel/runtime-corejs3/7.18.9:
+    resolution: {integrity: sha512-qZEWeccZCrHA2Au4/X05QW5CMdm4VjUDCrGq5gf1ZDcM4hRqreKrtwAn7yci9zfgAS9apvnsFXiGBHBAxZdK9A==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      core-js-pure: 3.24.0
+      regenerator-runtime: 0.13.9
+    dev: false
 
   /@babel/runtime/7.18.9:
     resolution: {integrity: sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==}
@@ -1016,6 +1026,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /core-js-pure/3.24.0:
+    resolution: {integrity: sha512-uzMmW8cRh7uYw4JQtzqvGWRyC2T5+4zipQLQdi2FmiRqP83k3d6F3stv2iAlNhOs6cXN401FCD5TL0vvleuHgA==}
+    requiresBuild: true
+    dev: false
 
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -3741,6 +3756,14 @@ packages:
 
   /w3c-keyname/2.2.5:
     resolution: {integrity: sha512-WJrK7i6w+ULuZsGscCezbCH4Aev5U3xY87vnSimzzEgPQhb0Sa0a1rE3c2jtEwrFtSfi61Jefw3jI5/DD/3jbQ==}
+    dev: false
+
+  /wangeditor/4.7.15:
+    resolution: {integrity: sha512-aPTdREd8BxXVyJ5MI+LU83FQ7u1EPd341iXIorRNYSOvoimNoZ4nPg+yn3FGbB93/owEa6buLw8wdhYnMCJQLg==}
+    dependencies:
+      '@babel/runtime': 7.18.9
+      '@babel/runtime-corejs3': 7.18.9
+      tslib: 2.3.0
     dev: false
 
   /webpack-sources/3.2.3:

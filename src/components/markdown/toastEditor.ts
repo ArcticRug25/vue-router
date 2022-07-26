@@ -7,7 +7,7 @@ interface BlobA extends Blob {
 }
 
 export default class {
-  editor
+  editor: Editor
   isFullscreen: Boolean = false
   constructor(el: string, initialValue: string, public height: string) {
     this.editor = new Editor({

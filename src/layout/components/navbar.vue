@@ -24,7 +24,7 @@ const fullScreen = () => {
     </div>
     <div class="relative flex justify-center items-center cursor-pointer">
       <Notification class="mr-8" />
-      <i class="fas fa-border-all mr-8" @click="fullScreen" />
+      <icon-full-screen-one theme="outline" size="20" fill="#333" class="mr-5" @click="fullScreen" />
       <div class="group">
         <div class="flex items-center">
           <img :src="userPinia.info?.avatar" class="w-8 h-8 rounded-full object-cover">
@@ -32,15 +32,15 @@ const fullScreen = () => {
         </div>
         <section class="group-hover:block absolute right-0 top-full bg-white shadow-sm px-5 whitespace-nowrap border rounded-md z-20 hidden">
           <div class="flex items-center cursor-pointer border-b py-3">
-            <a class="fas fa-ad" />
+            <icon-log theme="outline" size="18" fill="#333" />
             <span class="text-xs text-gray-600 ml-2">文档资料</span>
           </div>
           <div class="flex items-center cursor-pointer border-b py-3">
-            <a class="fas fa-ad" />
+            <icon-home theme="outline" size="18" fill="#333" />
             <span class="text-xs text-gray-600 ml-2">用户管理</span>
           </div>
           <div class="flex items-center cursor-pointer py-3" @click="utils.logout">
-            <a class="fas fa-ad" />
+            <icon-logout theme="outline" size="18" fill="#333" />
             <span class="text-xs text-gray-600 ml-2">退出登录</span>
           </div>
         </section>

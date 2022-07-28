@@ -2,6 +2,7 @@
 import { watch } from 'vue'
 import type { RouteRecordNormalized, RouteRecordRaw } from 'vue-router'
 import { useRoute, useRouter } from 'vue-router'
+import * as icons from '@icon-park/vue-next'
 import { routerStore } from '@/store/routerStore'
 
 const routerPinia = routerStore()
@@ -49,7 +50,7 @@ watch(route, () => {
             "
           >
             <section>
-              <i :class="route.meta.icon" />
+              <component :is="icons[route.meta.icon]" size="18" fill="#dcdcdc" class="mr-2" />
               <span class="text-">{{ route.meta.title }}</span>
             </section>
             <section>

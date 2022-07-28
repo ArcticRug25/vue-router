@@ -38,7 +38,7 @@ watch(route, () => {
   <div class="admin-menu" :class="{ close: routerPinia.close }">
     <div class="menu w-[200px] bg-gray-800">
       <div class="logo h-[56px]">
-        <i class="fas fa-robot text-blue-500 mr-2 text-[30rpx]" />
+        <icon-home theme="outline" size="18" fill="#dcdcdc" class="mr-2" />
         <span class="text-md text-white">ArcticRug25</span>
       </div>
       <!-- 菜单 -->

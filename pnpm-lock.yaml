@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': ^0.25.1
+  '@icon-park/vue-next': ^1.4.2
   '@toast-ui/editor': ^3.1.9
   '@types/echarts': ^4.9.16
   '@types/lodash': ^4.14.182
@@ -37,6 +38,7 @@ specifiers:
 
 dependencies:
   '@antfu/eslint-config': 0.25.2_5rsim3mri4w7zlsjzgv3wdigxu
+  '@icon-park/vue-next': 1.4.2_vue@3.2.37
   '@toast-ui/editor': 3.1.9
   '@vee-validate/i18n': 4.6.2
   '@vee-validate/rules': 4.6.2
@@ -281,6 +283,15 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: false
+
+  /@icon-park/vue-next/1.4.2_vue@3.2.37:
+    resolution: {integrity: sha512-+QklF255wkfBOabY+xw6FAI0Bwln/RhdwCunNy/9sKdKuChtaU67QZqU67KGAvZUTeeBgsL+yaHHxqfQeGZXEQ==}
+    engines: {node: '>= 8.0.0', npm: '>= 5.0.0'}
+    peerDependencies:
+      vue: 3.x
+    dependencies:
+      vue: 3.2.37
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:

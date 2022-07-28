@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import type { App } from 'vue'
 import setupElementPlus from './elementui'
+import setupIconPark from './iconpark'
 import setupPinia from './pinia'
 import { setupTailwincss } from './tailwindcss'
 
@@ -9,6 +10,7 @@ export function setupPlugins(app: App) {
   setupTailwincss()
   setupElementPlus(app)
   setupPinia(app)
+  setupIconPark(app)
 }
 
 // 自动注册全局组件

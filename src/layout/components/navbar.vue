@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { routerStore } from '@/store/routerStore'
 import userStore from '@/store/userStore'
 import * as utils from '@/utils'
@@ -8,8 +9,10 @@ import Breadcrumb from '@/components/breadcrumb.vue'
 const userPinia = userStore()
 const menuStore = routerStore()
 
+const isFullScreen = ref<boolean>(false)
 const fullScreen = () => {
-  document.documentElement.requestFullscreen()
+  isFullScreen.value ? document.exitFullscreen() : document.documentElement.requestFullscreen()
+  isFullScreen.value = !isFullScreen.value
 }
 </script>
 
@@ -24,7 +27,8 @@ const fullScreen = () => {
     </div>
     <div class="relative flex justify-center items-center cursor-pointer">
       <Notification class="mr-8" />
-      <icon-full-screen-one theme="outline" size="20" fill="#333" class="mr-5" @click="fullScreen" />
+      <icon-full-screen-one v-if="!isFullScreen" theme="outline" size="20" fill="#333" class="mr-5" @click="fullScreen" />
+      <icon-off-screen-one v-else theme="outline" size="20" fill="#333" class="mr-5" @click="fullScreen" />
       <div class="group">
         <div class="flex items-center">
           <img :src="userPinia.info?.avatar" class="w-8 h-8 rounded-full object-cover">

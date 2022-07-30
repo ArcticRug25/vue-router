@@ -50,7 +50,7 @@ watch(route, () => {
             "
           >
             <section>
-              <component :is="icons[route.meta.icon]" size="18" fill="#dcdcdc" class="mr-2" />
+              <component :is="icons[route.meta.icon!]" size="18" fill="#dcdcdc" class="mr-2" />
               <span class="text-">{{ route.meta.title }}</span>
             </section>
             <section>

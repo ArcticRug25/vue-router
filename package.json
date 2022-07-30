@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
     "pinia": "^2.0.14",
+    "pnpm": "^7.7.0",
     "vee-validate": "^4.5.8",
     "vue": "^3.2.25",
     "vue-router": "4",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@types/echarts": "^4.9.16",
     "@types/lodash": "^4.14.182",
+    "@types/mockjs": "^1.0.6",
     "@types/node": "^18.0.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "autoprefixer": "^10.4.7",

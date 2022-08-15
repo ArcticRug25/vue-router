@@ -4,7 +4,7 @@
 
 <template>
   <router-view />
-  <wang-editor uploadi />
+  <wang-editor />
 </template>
 
 <style scoped>
